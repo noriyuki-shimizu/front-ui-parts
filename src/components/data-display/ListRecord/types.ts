@@ -1,10 +1,7 @@
+import type { AnchorHTMLAttributes } from 'vue'
+
 /** レコード全体をリンクで囲う際のリンクデータ */
-export interface LinkBridge {
-  /** リンク */
-  to: string
-  /** ターゲット */
-  target?: string
-  /** エリアラベル */
+export interface LinkBridge extends AnchorHTMLAttributes {
   ariaLabel?: string
 }
 
