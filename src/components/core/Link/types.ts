@@ -1,4 +1,4 @@
 import type { AnchorHTMLAttributes } from 'vue'
 
 /** Props */
-export type Props = AnchorHTMLAttributes
+export interface Props extends /* @vue-ignore */ AnchorHTMLAttributes {}
