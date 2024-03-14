@@ -1,0 +1,49 @@
+{
+  "typescript": {
+    "quoteStyle": "alwaysSingle",
+    "singleBodyPosition": "nextLine",
+    "trailingCommas": "never",
+    "semiColons": "asi",
+    "module.sortImportDeclarations": "maintain"
+  },
+  "json": {},
+  "markdown": {},
+  "dockerfile": {},
+  "prettier": {
+    "printWidth": 120,
+    "tabWidth": 2,
+    "useTabs": false,
+    "semi": false,
+    "singleQuote": true,
+    "quoteProps": "as-needed",
+    "jsxSingleQuote": false,
+    "trailingComma": "none",
+    "bracketSpacing": true,
+    "bracketSameLine": false,
+    "arrowParens": "always",
+    "rangeStart": 0,
+    "requirePragma": false,
+    "insertPragma": false,
+    "proseWrap": "preserve",
+    "htmlWhitespaceSensitivity": "css",
+    "vueIndentScriptAndStyle": false,
+    "endOfLine": "lf",
+    "embeddedLanguageFormatting": "auto"
+  },
+  "includes": [
+    "**/*.{vue,md,js,jsx,cjs,mjs,ts,tsx,cts,mts,json}"
+  ],
+  "excludes": [
+    "**/dist",
+    "**/coverage",
+    "**/node_modules",
+    "**/*-lock.json"
+  ],
+  "plugins": [
+    "https://plugins.dprint.dev/typescript-0.89.3.wasm",
+    "https://plugins.dprint.dev/json-0.19.2.wasm",
+    "https://plugins.dprint.dev/markdown-0.16.4.wasm",
+    "https://plugins.dprint.dev/dockerfile-0.3.0.wasm",
+    "https://plugins.dprint.dev/prettier-0.39.0.json@896b70f29ef8213c1b0ba81a93cee9c2d4f39ac2194040313cd433906db7bc7c"
+  ]
+}
