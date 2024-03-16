@@ -22,7 +22,8 @@
     "plugin:import/typescript",
     "plugin:vue/vue3-recommended",
     "@vue/typescript/recommended",
-    "plugin:security/recommended-legacy"
+    "plugin:security/recommended-legacy",
+    "plugin:storybook/recommended"
   ],
   "settings": {
     "import/resolver": {

@@ -37,7 +37,9 @@
     "format": "npm run format:d && npm run format:e && npm run format:s",
     "format:d": "dprint fmt",
     "format:e": "npm run lint:e -- --fix",
-    "format:s": "npm run lint:s -- --fix"
+    "format:s": "npm run lint:s -- --fix",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@vueuse/core": "^10.9.0",
@@ -45,6 +47,14 @@
     "vue": "^3.4.15"
   },
   "devDependencies": {
+    "@chromatic-com/storybook": "^1.2.19",
+    "@storybook/addon-essentials": "^8.0.0",
+    "@storybook/addon-interactions": "^8.0.0",
+    "@storybook/addon-links": "^8.0.0",
+    "@storybook/blocks": "^8.0.0",
+    "@storybook/test": "^8.0.0",
+    "@storybook/vue3": "^8.0.0",
+    "@storybook/vue3-vite": "^8.0.0",
     "@tsconfig/node20": "^20.1.2",
     "@types/jsdom": "^21.1.6",
     "@types/node": "^20.11.10",
@@ -62,6 +72,7 @@
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-security": "^2.1.1",
+    "eslint-plugin-storybook": "^0.8.0",
     "eslint-plugin-unused-imports": "^3.1.0",
     "eslint-plugin-vue": "^9.23.0",
     "jsdom": "^24.0.0",
@@ -70,6 +81,7 @@
     "postcss-html": "^1.6.0",
     "postcss-scss": "^4.0.9",
     "sass": "^1.71.1",
+    "storybook": "^8.0.0",
     "stylelint": "^16.2.1",
     "stylelint-config-recess-order": "^5.0.0",
     "stylelint-config-recommended": "^14.0.0",
