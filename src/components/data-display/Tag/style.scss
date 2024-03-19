@@ -1,23 +1,79 @@
 .tag {
-  padding: 4px 8px;
+  $this: &;
+
+  padding: 8px;
+  font-size: 12px;
+  line-height: 1;
   border-radius: 8px;
 
-  &:hover {
-    background-color: var(--color-background-tag-hover);
-  }
-
-  &--border,&--color {
-    &-normal {
-      border: 1px solid var(--color-border);
+  &--hover {
+    &:hover {
+      cursor: pointer;
     }
   }
 
   &--color {
     &-normal {
-      background-color: var(--color-background-tag);
+      background-color: var(--color-background-normal);
 
-      &:hover {
-        background-color: var(--color-background-tag-hover);
+      &#{$this}--hover:hover {
+        background-color: var(--color-background-normal-hover);
+      }
+
+      &#{$this}--border {
+        border: 1px solid var(--color-border-normal);
+      }
+    }
+
+    &-processing {
+      color: var(--color-light-text-processing);
+      background-color: var(--color-background-processing);
+
+      &#{$this}--hover:hover {
+        background-color: var(--color-background-processing-hover);
+      }
+
+      &#{$this}--border {
+        border: 1px solid var(--color-border-processing);
+      }
+    }
+
+    &-success {
+      color: var(--color-light-text-success);
+      background-color: var(--color-background-success);
+
+      &#{$this}--hover:hover {
+        background-color: var(--color-background-success-hover);
+      }
+
+      &#{$this}--border {
+        border: 1px solid var(--color-border-success);
+      }
+    }
+
+    &-error {
+      color: var(--color-light-text-error);
+      background-color: var(--color-background-error);
+
+      &#{$this}--hover:hover {
+        background-color: var(--color-background-error-hover);
+      }
+
+      &#{$this}--border {
+        border: 1px solid var(--color-border-error);
+      }
+    }
+
+    &-warning {
+      color: var(--color-light-text-warning);
+      background-color: var(--color-background-warning);
+
+      &#{$this}--hover:hover {
+        background-color: var(--color-background-warning-hover);
+      }
+
+      &#{$this}--border {
+        border: 1px solid var(--color-border-warning);
       }
     }
   }

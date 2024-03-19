@@ -5,18 +5,13 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { Props } from './types'
 import EmptyIconSvg from '@/assets/svg/empty.svg?component'
 
 /** Props */
-const props = withDefaults(
-  defineProps<{
-    /** 空表示のイメージを表示するか */
-    noImage?: boolean
-  }>(),
-  {
-    noImage: false
-  }
-)
+const props = withDefaults(defineProps<Props>(), {
+  noImage: false
+})
 </script>
 
 <template>
