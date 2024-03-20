@@ -4,7 +4,7 @@ Vue3 + Vite における UI ライブラリ
 
 ## UI Catalog
 
-https://65fa8ee4a2f886d4907b4547-fwsgnclymw.chromatic.com/?path=/docs/data-display-tag--docs
+[Storybook](https://65fa8ee4a2f886d4907b4547-fwsgnclymw.chromatic.com/)
 
 ## Install
 
