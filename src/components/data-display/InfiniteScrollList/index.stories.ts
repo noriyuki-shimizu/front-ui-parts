@@ -6,7 +6,7 @@ import type { Props } from './types'
 const meta = {
   title: 'Data Display/InfiniteScrollList',
   // TODO: Watch: https://github.com/storybookjs/storybook/issues/24238
-  component: InfiniteScrollList as Record<string, unknown>,
+  component: InfiniteScrollList as unknown as Record<string, unknown>,
   tags: ['autodocs'],
   argTypes: {
     /* slots.emptyDescription */
@@ -41,7 +41,7 @@ type Story = StoryObj<typeof meta>
 
 const template: Story = {
   render: (args) => ({
-    components: { InfiniteScrollList: InfiniteScrollList as Record<string, unknown> },
+    components: { InfiniteScrollList: InfiniteScrollList as unknown as Record<string, unknown> },
     setup() {
       const argValue = args as Partial<Props<{ id: string; text: string }[]>>
       const items = ref(argValue.items ?? [])
