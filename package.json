@@ -1,6 +1,6 @@
 {
   "name": "front-ui-parts",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": false,
   "author": {
     "name": "noriyuki.shimizu"
@@ -16,14 +16,15 @@
   "files": [
     "dist"
   ],
-  "main": ".dist/front-ui-parts.umd.js",
-  "module": ".dist/front-ui-parts.js",
+  "main": "./dist/front-ui-parts.umd.js",
+  "module": "./dist/front-ui-parts.es.js",
   "types": "./dist/src/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/front-ui-parts.js",
+      "import": "./dist/front-ui-parts.es.js",
       "require": "./dist/front-ui-parts.umd.js"
-    }
+    },
+    "./dist/style.css": "./dist/style.css"
   },
   "scripts": {
     "dev": "vite",

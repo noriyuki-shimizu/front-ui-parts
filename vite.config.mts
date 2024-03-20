@@ -29,7 +29,7 @@ export default defineConfig({
     lib: {
       entry: fileURLToPath(new URL('./src', import.meta.url)),
       name: 'front-ui-parts',
-      fileName: 'front-ui-parts',
+      fileName: (format) => `front-ui-parts.${format}.js`,
       formats: ['es', 'umd']
     },
     rollupOptions: {
