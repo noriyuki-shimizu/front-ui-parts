@@ -12,6 +12,10 @@
     }
   }
 
+  &--border {
+    padding: 7px;
+  }
+
   &--color {
     &-normal {
       background-color: var(--color-background-normal);
