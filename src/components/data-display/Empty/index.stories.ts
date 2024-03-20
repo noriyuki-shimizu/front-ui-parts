@@ -1,5 +1,6 @@
 import type { ArgTypeObject, Meta, StoryObj } from '@storybook/vue3'
 import Empty from './index.vue'
+import type { Props } from './types'
 
 const meta = {
   title: 'Data Display/Empty',
@@ -20,7 +21,7 @@ const meta = {
     },
     /* slots.description */
     description: {
-      description: 'Custom description',
+      description: '空表示を表すカスタムテキスト',
       type: 'string',
       table: {
         defaultValue: { summary: 'No data' },
@@ -28,7 +29,7 @@ const meta = {
       }
     }
   }
-} satisfies Meta<typeof Empty> | ArgTypeObject // TODO: Watch: https://github.com/storybookjs/storybook/issues/23352
+} satisfies Meta<Props> & ArgTypeObject // TODO: Watch: https://github.com/storybookjs/storybook/issues/23352
 
 export default meta
 

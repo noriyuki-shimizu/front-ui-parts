@@ -38,7 +38,7 @@ const { isLoading } = useInfiniteScroll(
     <template v-if="LangUtil.isEmpty(props.items)">
       <Empty id="infinite-scroll-list-display-empty-data" :class="$style['infinite-scroll-list__empty']">
         <template #description>
-          <slot name="emptyDescription">No Data</slot>
+          <slot name="emptyDescription" />
         </template>
       </Empty>
     </template>

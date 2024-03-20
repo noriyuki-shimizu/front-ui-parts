@@ -1,5 +1,6 @@
 import type { ArgTypeObject, Meta, StoryObj } from '@storybook/vue3'
 import Tag from './index.vue'
+import type { Props } from './types'
 
 const meta = {
   title: 'Data Display/Tag',
@@ -15,7 +16,7 @@ const meta = {
     }
   },
   decorators: [() => ({ template: '<div style="display: flex; gap: 8px"><story /></div>' })]
-} satisfies Meta<typeof Tag> | ArgTypeObject // TODO: Watch: https://github.com/storybookjs/storybook/issues/23352
+} satisfies Meta<Props> & ArgTypeObject // TODO: Watch: https://github.com/storybookjs/storybook/issues/23352
 
 export default meta
 
