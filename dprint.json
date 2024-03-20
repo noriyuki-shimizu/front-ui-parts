@@ -34,8 +34,9 @@
     "**/*.{vue,md,js,jsx,cjs,mjs,ts,tsx,cts,mts,json}"
   ],
   "excludes": [
-    "**/dist",
     "**/coverage",
+    "**/dist",
+    "**/storybook-static",
     "**/node_modules",
     "**/*-lock.json"
   ],
