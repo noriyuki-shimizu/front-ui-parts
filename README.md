@@ -12,6 +12,9 @@ Vue3 + Vite における UI ライブラリ
 npm i -S front-ui-parts
 ```
 
+> [!WARNING]
+> TypeScript v5.0 以上をお使いの方は tsconfig.json の `compilerOptions.resolvePackageJsonExports` を false に設定してください
+
 ## Developer Guide
 
 ```sh

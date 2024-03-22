@@ -1,7 +1,8 @@
 {
   "name": "front-ui-parts",
-  "version": "0.0.3",
+  "version": "0.0.10",
   "private": false,
+  "type": "module",
   "author": {
     "name": "noriyuki.shimizu"
   },
@@ -11,24 +12,28 @@
     "url": "git+https://github.com/noriyuki-shimizu/front-ui-parts.git"
   },
   "keywords": [
-    "Vue.js"
+    "Vue.js",
+    "front-ui-parts"
   ],
-  "files": [
-    "dist"
-  ],
+  "files": ["dist", "src/components/"],
   "main": "./dist/front-ui-parts.umd.js",
   "module": "./dist/front-ui-parts.es.js",
-  "types": "./dist/src/index.d.ts",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/front-ui-parts.es.js",
       "require": "./dist/front-ui-parts.umd.js"
     },
-    "./dist/style.css": "./dist/style.css"
+    "./dist/style.css": {
+      "import": "./dist/style.css",
+      "require": "./dist/style.css"
+    }
   },
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",
+    "prepare": "npm run build",
     "preview": "vite preview",
     "test:ut": "vitest run",
     "build-only": "vite build",
@@ -100,6 +105,9 @@
     "vite-plugin-dts": "^3.7.3",
     "vitest": "^1.2.2",
     "vue-tsc": "^1.8.27"
+  },
+  "peerDependencies": {
+    "vue": "^3.0.0"
   },
   "volta": {
     "node": "20.11.1",
