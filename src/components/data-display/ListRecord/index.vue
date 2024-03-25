@@ -1,26 +1,39 @@
 <script setup lang="ts">
-import type { Props } from './types'
-import Link from '@/components/core/Link/index.vue'
 import { LangUtil } from '@/utils/core'
-
-/** Props */
-const props = defineProps<Props>()
-
-const { ariaLabel, ...anchorHTMLAttributes } = props.linkBridge ?? {}
 </script>
 
 <template>
-  <article :class="$style['list-record']">
-    <template v-if="!LangUtil.isNull(linkBridge)">
-      <Link :class="$style['list-record__link-bridge']" :aria-label="ariaLabel" v-bind="anchorHTMLAttributes" />
-    </template>
-    <div :class="$style['list-record__container']">
-      <div v-if="$slots.leftAside" :class="$style['list-record__left-aside']">
+  <div :class="$style['list-detail']">
+    <div v-if="!LangUtil.isUndefined($slots.img)" :class="$style['list-detail__img_wrapper']">
+      <slot name="img" />
+    </div>
+    <div
+      :class="[
+        $style['list-detail__body'],
+        { [$style['list-detail__body--shift-right']]: !LangUtil.isUndefined($slots.img) }
+      ]"
+    >
+      <div v-if="!LangUtil.isUndefined($slots.leftAside)" :class="$style['list-detail__left-aside']">
         <slot name="leftAside" />
       </div>
-      <slot />
+      <article :class="$style['list-detail__container']">
+        <header v-if="!LangUtil.isUndefined($slots.header)" :class="$style['list-detail__header']">
+          <slot name="header" />
+        </header>
+        <h2 :class="$style['list-detail__title']">
+          <slot name="title">タイトル</slot>
+        </h2>
+        <div v-if="!LangUtil.isUndefined($slots.description)" :class="$style['list-detail__description-wrapper']">
+          <p :class="$style['list-detail__description']">
+            <slot name="description" />
+          </p>
+        </div>
+        <footer v-if="!LangUtil.isUndefined($slots.footer)" :class="$style['list-detail__footer']">
+          <slot name="footer" />
+        </footer>
+      </article>
     </div>
-  </article>
+  </div>
 </template>
 
 <style module lang="scss">
