@@ -11,7 +11,7 @@ export default defineConfig({
     vue(),
     vueJsx(),
     viteSvgLoader(),
-    dts({ exclude: ['**/*.stories.ts'] })
+    dts({ exclude: ['./src/components/core', './src/utils', '**/*.d.ts', '**/*.stories.ts'] })
   ],
   resolve: {
     alias: {
