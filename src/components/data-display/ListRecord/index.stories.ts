@@ -1,55 +1,67 @@
 import type { ArgTypeObject, Meta, StoryObj } from '@storybook/vue3'
 import ListRecord from './index.vue'
 
+// TODO: Watch: https://github.com/storybookjs/storybook/issues/24238
+const ListRecordComponent = ListRecord as Record<string, unknown>
+
 const meta = {
   title: 'Data Display/ListRecord',
-  // TODO: Watch: https://github.com/storybookjs/storybook/issues/24238
-  component: ListRecord as unknown as Record<string, unknown>,
+  component: ListRecordComponent,
   tags: ['autodocs'],
   argTypes: {
     /* slots.img */
     img: {
-      description: '画像',
-      type: 'img',
-      control: 'object'
+      description: 'レコードに表示する画像',
+      control: { type: 'text' },
+      table: {
+        type: { summary: 'img' }
+      }
     },
     /* slots.leftAside */
     leftAside: {
       description: '左アサイドへの表示項目',
-      type: 'string',
-      control: 'text'
+      control: { type: 'text' },
+      table: {
+        type: { summary: 'string' }
+      }
     },
     /* slots.header */
     header: {
       description: 'ヘッダー',
-      type: 'string',
-      control: 'text'
+      control: { type: 'text' },
+      table: {
+        type: { summary: 'string' }
+      }
     },
     /* slots.title */
     title: {
       description: 'タイトル',
-      type: 'string',
-      control: 'text',
+      control: { type: 'text' },
       table: {
         defaultValue: {
           summary: 'タイトル'
-        }
+        },
+        type: { summary: 'string' }
       }
     },
     /* slots.description */
     description: {
       description: '説明',
-      type: 'string',
-      control: 'text'
+      control: { type: 'text' },
+      table: {
+        type: { summary: 'string' }
+      }
     },
     /* slots.footer */
     footer: {
       description: 'フッター',
-      type: 'string',
-      control: 'text'
+      control: { type: 'text' },
+      table: {
+        type: { summary: 'string' }
+      }
     }
   }
-} satisfies Meta<typeof ListRecord> & ArgTypeObject // TODO: Watch: https://github.com/storybookjs/storybook/issues/23352
+} satisfies Meta<typeof ListRecordComponent> & ArgTypeObject // TODO: Watch: https://github.com/storybookjs/storybook/issues/23352
 
 export default meta
 
@@ -57,7 +69,7 @@ type Story = StoryObj<typeof meta>
 
 export const SimpleRecord: Story = {
   render: (args) => ({
-    components: { ListRecord: ListRecord as unknown as Record<string, unknown> },
+    components: { ListRecord: ListRecordComponent },
     setup() {
       return { args }
     },
@@ -74,7 +86,7 @@ export const SimpleRecord: Story = {
 
 export const LeftAsideRecord: Story = {
   render: (args) => ({
-    components: { ListRecord: ListRecord as unknown as Record<string, unknown> },
+    components: { ListRecord: ListRecordComponent },
     setup() {
       return { args }
     },
@@ -94,7 +106,7 @@ export const LeftAsideRecord: Story = {
 
 export const ImgRecord: Story = {
   render: (args) => ({
-    components: { ListRecord: ListRecord as unknown as Record<string, unknown> },
+    components: { ListRecord: ListRecordComponent },
     setup() {
       return { args }
     },
@@ -119,7 +131,7 @@ export const ImgRecord: Story = {
 
 export const LongTextRecord: Story = {
   render: (args) => ({
-    components: { ListRecord: ListRecord as unknown as Record<string, unknown> },
+    components: { ListRecord: ListRecordComponent },
     setup() {
       return { args }
     },

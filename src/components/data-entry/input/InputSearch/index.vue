@@ -21,7 +21,7 @@ const model = defineModel<string | null>({ required: true })
       :class="[$style['input-search__input'], $style[`input-search__input--${$props.size}`]]"
     />
     <button type="submit" title="search" :class="$style['input-search__button']">
-      <SearchIconSvg />
+      <SearchIconSvg :class="$style['input-search__icon']" />
     </button>
   </div>
 </template>

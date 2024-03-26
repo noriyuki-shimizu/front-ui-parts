@@ -1,35 +1,36 @@
 import type { ArgTypeObject, Meta, StoryObj } from '@storybook/vue3'
 import Empty from './index.vue'
-import type { Props } from './types'
+
+// TODO: Watch: https://github.com/storybookjs/storybook/issues/24238
+const EmptyComponent = Empty as Record<string, unknown>
 
 const meta = {
   title: 'Data Display/Empty',
-  // TODO: Watch: https://github.com/storybookjs/storybook/issues/24238
-  component: Empty as Record<string, unknown>,
+  component: EmptyComponent,
   tags: ['autodocs'],
   argTypes: {
     /* slots.image */
     image: {
       description: '空表示を表すカスタムイメージ',
-      type: 'svg|img',
-      control: false,
+      control: { type: 'text' },
       table: {
         defaultValue: {
           summary: 'https://github.com/noriyuki-shimizu/front-ui-parts/blob/main/src/assets/svg/empty.svg'
-        }
+        },
+        type: { summary: 'img|svg' }
       }
     },
     /* slots.description */
     description: {
       description: '空表示を表すカスタムテキスト',
-      type: 'string',
+      control: { type: 'text' },
       table: {
         defaultValue: { summary: 'No data' },
         type: { summary: 'string' }
       }
     }
   }
-} satisfies Meta<Props> & ArgTypeObject // TODO: Watch: https://github.com/storybookjs/storybook/issues/23352
+} satisfies Meta<typeof EmptyComponent> & ArgTypeObject // TODO: Watch: https://github.com/storybookjs/storybook/issues/23352
 
 export default meta
 
@@ -45,7 +46,7 @@ export const NoImage: Story = {
 
 export const CustomImage: Story = {
   render: (args) => ({
-    components: { Empty: Empty as Record<string, unknown> },
+    components: { Empty: EmptyComponent },
     setup() {
       return args
     },
@@ -64,7 +65,7 @@ export const CustomImage: Story = {
 
 export const CustomDescription: Story = {
   render: (args) => ({
-    components: { Empty: Empty as Record<string, unknown> },
+    components: { Empty: EmptyComponent },
     setup() {
       return args
     },

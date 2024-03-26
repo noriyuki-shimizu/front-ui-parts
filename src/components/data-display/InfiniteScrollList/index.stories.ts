@@ -3,37 +3,45 @@ import { ref } from 'vue'
 import InfiniteScrollList from './index.vue'
 import type { Props } from './types'
 
+// TODO: Watch: https://github.com/storybookjs/storybook/issues/24238
+const InfiniteScrollListComponent = InfiniteScrollList as unknown as Record<string, unknown>
+
 const meta = {
   title: 'Data Display/InfiniteScrollList',
-  // TODO: Watch: https://github.com/storybookjs/storybook/issues/24238
-  component: InfiniteScrollList as unknown as Record<string, unknown>,
+  component: InfiniteScrollListComponent,
   tags: ['autodocs'],
   argTypes: {
     /* slots.emptyDescription */
     emptyDescription: {
       description: '空表示を表すカスタムテキスト',
-      type: 'string',
-      control: 'text',
+      control: { type: 'text' },
       table: {
         defaultValue: {
           summary: 'No Data'
-        }
+        },
+        type: { summary: 'string' }
       }
     },
     /* slots.record */
     record: {
       description: 'リスト内のレコード',
-      control: 'object'
+      control: 'object',
+      table: {
+        defaultValue: {
+          summary: 'No Data'
+        },
+        type: { summary: '{ item: T }' }
+      }
     }
   },
   args: {
     items: [{ id: '', text: '' }],
     height: '',
-    onLoad(page) {
+    onLoad(page: number) {
       return page === 0
     }
   }
-} satisfies Meta<Props<{ id: string; text: string }[]>> & ArgTypeObject // TODO: Watch: https://github.com/storybookjs/storybook/issues/23352
+} satisfies Meta<typeof InfiniteScrollListComponent> & ArgTypeObject // TODO: Watch: https://github.com/storybookjs/storybook/issues/23352
 
 export default meta
 
@@ -41,7 +49,7 @@ type Story = StoryObj<typeof meta>
 
 const template: Story = {
   render: (args) => ({
-    components: { InfiniteScrollList: InfiniteScrollList as unknown as Record<string, unknown> },
+    components: { InfiniteScrollList: InfiniteScrollListComponent },
     setup() {
       const argValue = args as Partial<Props<{ id: string; text: string }[]>>
       const items = ref(argValue.items ?? [])

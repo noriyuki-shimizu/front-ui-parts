@@ -4,31 +4,32 @@ import { LangUtil } from '@/utils/core'
 
 <template>
   <div :class="$style['list-detail']">
-    <div v-if="!LangUtil.isUndefined($slots.img)" :class="$style['list-detail__img_wrapper']">
+    <div v-if="!LangUtil.isUndefined($slots.img)" :class="$style['list-detail__img-wrapper']">
       <slot name="img" />
     </div>
     <div
       :class="[
         $style['list-detail__body'],
-        { [$style['list-detail__body--shift-right']]: !LangUtil.isUndefined($slots.img) }
+        $style['body'],
+        { [$style['body--shift-right']]: !LangUtil.isUndefined($slots.img) }
       ]"
     >
-      <div v-if="!LangUtil.isUndefined($slots.leftAside)" :class="$style['list-detail__left-aside']">
+      <div v-if="!LangUtil.isUndefined($slots.leftAside)" :class="$style['body__left-aside']">
         <slot name="leftAside" />
       </div>
-      <article :class="$style['list-detail__container']">
-        <header v-if="!LangUtil.isUndefined($slots.header)" :class="$style['list-detail__header']">
+      <article :class="$style['body__container']">
+        <header v-if="!LangUtil.isUndefined($slots.header)" :class="$style['body__header']">
           <slot name="header" />
         </header>
-        <h2 :class="$style['list-detail__title']">
+        <h2 :class="$style['body__title']">
           <slot name="title">タイトル</slot>
         </h2>
-        <div v-if="!LangUtil.isUndefined($slots.description)" :class="$style['list-detail__description-wrapper']">
-          <p :class="$style['list-detail__description']">
+        <div v-if="!LangUtil.isUndefined($slots.description)" :class="$style['body__description-wrapper']">
+          <p :class="$style['body__description']">
             <slot name="description" />
           </p>
         </div>
-        <footer v-if="!LangUtil.isUndefined($slots.footer)" :class="$style['list-detail__footer']">
+        <footer v-if="!LangUtil.isUndefined($slots.footer)" :class="$style['body__footer']">
           <slot name="footer" />
         </footer>
       </article>

@@ -27,7 +27,7 @@ declare module '@storybook/vue3' {
 
   /** @see {@link https://storybook.js.org/docs/api/arg-types#argtypes} */
   interface ArgTypeObject {
-    argTypes: {
+    argTypes?: {
       [key: string]: {
         control?: ControlType | {
           type: ControlType

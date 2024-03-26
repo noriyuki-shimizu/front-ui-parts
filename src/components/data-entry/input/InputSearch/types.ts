@@ -2,6 +2,6 @@
 export interface Props {
   /** placeholder */
   placeholder?: string
-  /** Size */
+  /** size */
   size?: 'small' | 'medium' | 'large'
 }

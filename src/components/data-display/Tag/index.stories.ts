@@ -1,22 +1,25 @@
 import type { ArgTypeObject, Meta, StoryObj } from '@storybook/vue3'
 import Tag from './index.vue'
-import type { Props } from './types'
+
+// TODO: Watch: https://github.com/storybookjs/storybook/issues/24238
+const TagComponent = Tag as Record<string, unknown>
 
 const meta = {
   title: 'Data Display/Tag',
-  // TODO: Watch: https://github.com/storybookjs/storybook/issues/24238
-  component: Tag as Record<string, unknown>,
+  component: TagComponent,
   tags: ['autodocs'],
   argTypes: {
     /* slots.default */
     default: {
       description: 'タグ内のテキスト',
-      type: 'string',
-      control: 'text'
+      control: { type: 'text' },
+      table: {
+        type: { summary: 'string' }
+      }
     }
   },
   decorators: [() => ({ template: '<div style="display: flex; gap: 8px"><story /></div>' })]
-} satisfies Meta<Props> & ArgTypeObject // TODO: Watch: https://github.com/storybookjs/storybook/issues/23352
+} satisfies Meta<typeof TagComponent> & ArgTypeObject // TODO: Watch: https://github.com/storybookjs/storybook/issues/23352
 
 export default meta
 
@@ -24,7 +27,7 @@ type Story = StoryObj<typeof meta>
 
 export const Border: Story = {
   render: (args) => ({
-    components: { Tag: Tag as Record<string, unknown> },
+    components: { Tag: TagComponent },
     setup() {
       return args
     },
@@ -40,7 +43,7 @@ export const Border: Story = {
 
 export const NoBorder: Story = {
   render: (args) => ({
-    components: { Tag: Tag as Record<string, unknown> },
+    components: { Tag: TagComponent },
     setup() {
       return args
     },
@@ -56,7 +59,7 @@ export const NoBorder: Story = {
 
 export const Hover: Story = {
   render: (args) => ({
-    components: { Tag: Tag as Record<string, unknown> },
+    components: { Tag: TagComponent },
     setup() {
       return args
     },
