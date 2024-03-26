@@ -7,7 +7,6 @@
   "schedule": ["after 8am on monday", "before 10am on monday"],
   "addLabels": ["renovate"],
   "reviewers": ["noriyuki-shimizu"],
-  "ignoreDeps": ["node", "npm"],
   "packageRules": [
     {
       "matchPackagePatterns": ["^@vueuse"],
