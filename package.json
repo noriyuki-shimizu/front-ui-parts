@@ -16,7 +16,9 @@
     "Vue.js",
     "front-ui-parts"
   ],
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "main": "./dist/front-ui-parts.umd.js",
   "module": "./dist/front-ui-parts.es.js",
   "types": "./dist/index.d.ts",
@@ -86,6 +88,7 @@
     "eslint-plugin-security": "^2.1.1",
     "eslint-plugin-storybook": "^0.8.0",
     "eslint-plugin-unused-imports": "^3.1.0",
+    "eslint-plugin-vitest": "^0.4.0",
     "eslint-plugin-vue": "^9.23.0",
     "jsdom": "^24.0.0",
     "npm-run-all2": "^6.1.1",

@@ -25,6 +25,13 @@
     "plugin:security/recommended-legacy",
     "plugin:storybook/recommended"
   ],
+  "overrides": [
+		{
+			"files": ["**/*.spec.ts"],
+			"plugins": ["vitest"],
+			"extends": ["plugin:vitest/recommended"]
+		}
+	],
   "settings": {
     "import/resolver": {
       "typescript": true,
@@ -62,6 +69,10 @@
     "@typescript-eslint/consistent-type-imports": ["error", { "prefer": "type-imports" }],
     "import/export": "off",
     /* eslint-plugin-unused-imports */
-    "unused-imports/no-unused-imports": "error"
+    "unused-imports/no-unused-imports": "error",
+    /* eslint-plugin-vitest */
+    "vitest/consistent-test-it": ["error", {"fn": "it"}],
+    "vitest/require-top-level-describe": ["error"],
+    "vitest/max-expects": ["error", { "max": 3 }]
   }
 }
