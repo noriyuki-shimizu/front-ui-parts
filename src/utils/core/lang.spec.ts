@@ -46,11 +46,11 @@ describe('Lang utility functions', () => {
 
   describe('isUndefined', () => {
     it('value is null', () => {
-      expect(isUndefined(null)).toBe(true)
+      expect(isUndefined(null)).toBe(false)
     })
 
     it('value is undefined', () => {
-      expect(isUndefined(undefined)).toBe(false)
+      expect(isUndefined(undefined)).toBe(true)
     })
 
     it('value is 0', () => {
@@ -80,7 +80,7 @@ describe('Lang utility functions', () => {
     })
 
     it('value is undefined', () => {
-      expect(isNil(undefined)).toBe(false)
+      expect(isNil(undefined)).toBe(true)
     })
 
     it('value is 0', () => {
