@@ -17,6 +17,5 @@ jobs:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           token: ${{ secrets.GITHUB_TOKEN }}
           zip: true
-          exitZeroOnChanges: true
           autoAcceptChanges: "main"
           skip: "@(renovate/**|dependabot/**)"
