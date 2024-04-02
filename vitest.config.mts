@@ -18,6 +18,7 @@ export default mergeConfig(
         reporter: ['text-summary', 'lcov'],
         all: true,
         enabled: true,
+        reportsDirectory: './coverage/vitest',
         include: ['**/*.ts', '**/*.vue'],
         exclude: [
           ...(configDefaults.coverage.exclude || []),
