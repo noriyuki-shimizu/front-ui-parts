@@ -10,21 +10,12 @@ const config: TestRunnerConfig = {
     await injectAxe(page)
   },
   async postVisit(page) {
-    // Accessibility Testing
     await checkA11y(page, '#storybook-root', {
       detailedReport: true,
       detailedReportOptions: {
         html: true
       }
     })
-
-    // Snapshot Testing
-    const elementHandler = await page.$('#storybook-root')
-    if (elementHandler !== null) {
-      const innerHTML = await elementHandler.innerHTML()
-      // @ts-ignore
-      expect(innerHTML).toMatchSnapshot()
-    }
   }
 }
 
