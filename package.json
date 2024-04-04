@@ -121,8 +121,8 @@
     "vue": "^3.0.0"
   },
   "volta": {
-    "node": "20.11.1",
-    "npm": "10.2.4"
+    "node": "20.12.1",
+    "npm": "10.5.0"
   },
   "bugs": {
     "url": "https://github.com/noriyuki-shimizu/front-ui-parts/issues"
