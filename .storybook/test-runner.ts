@@ -19,7 +19,6 @@ const config: TestRunnerConfig = {
     })
 
     // Snapshot test
-    await page.waitForSelector('#storybook-root')
     const elementHandler = await page.$('#storybook-root')
     if (elementHandler !== null) {
       const innerHTML = await elementHandler.innerHTML()
