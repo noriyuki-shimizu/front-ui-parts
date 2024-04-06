@@ -10,8 +10,6 @@ const config: TestRunnerConfig = {
     await injectAxe(page)
   },
   async postVisit(page) {
-    await page.setViewportSize({ width: 1000, height: 1000 })
-
     // Accessibility test
     await checkA11y(page, '#storybook-root', {
       detailedReport: true,

@@ -47,6 +47,8 @@ const { isLoading } = useInfiniteScroll(
         <template v-for="item in props.items" :key="item.id">
           <slot name="record" :item="item" />
         </template>
+        <pre>{{ isLoading }}</pre>
+        <pre>{{ isFinish }}</pre>
         <div v-show="isLoading && !isFinish" :class="$style['infinite-scroll-list__spinner-wrapper']">
           <Spinner />
         </div>
