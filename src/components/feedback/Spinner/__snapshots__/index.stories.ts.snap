@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Feedback/Spinner Default smoke-test 1`] = `
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="48"
+     height="48"
+     viewbox="0 0 24 24"
+     class="_spinner_aflx1_325 _spinner--default_aflx1_332"
+>
+  <path fill-opacity=".1"
+        d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0m0 3c5 0 9 4 9 9s-4 9-9 9-9-4-9-9 4-9 9-9"
+  >
+  </path>
+  <path fill="currentColor"
+        d="M12 0c6.6 0 12 5.4 12 12h-3c0-5-4-9-9-9z"
+  >
+    <animateTransform attributename="transform"
+                      dur="1.2s"
+                      from="0 12 12"
+                      repeatcount="indefinite"
+                      to="360 12 12"
+                      type="rotate"
+    >
+    </animateTransform>
+  </path>
+</svg>
+`;
+
+exports[`Feedback/Spinner Large smoke-test 1`] = `
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="48"
+     height="48"
+     viewbox="0 0 24 24"
+     class="_spinner_aflx1_325 _spinner--large_aflx1_336"
+>
+  <path fill-opacity=".1"
+        d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0m0 3c5 0 9 4 9 9s-4 9-9 9-9-4-9-9 4-9 9-9"
+  >
+  </path>
+  <path fill="currentColor"
+        d="M12 0c6.6 0 12 5.4 12 12h-3c0-5-4-9-9-9z"
+  >
+    <animateTransform attributename="transform"
+                      dur="1.2s"
+                      from="0 12 12"
+                      repeatcount="indefinite"
+                      to="360 12 12"
+                      type="rotate"
+    >
+    </animateTransform>
+  </path>
+</svg>
+`;
+
+exports[`Feedback/Spinner Small smoke-test 1`] = `
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="48"
+     height="48"
+     viewbox="0 0 24 24"
+     class="_spinner_aflx1_325 _spinner--small_aflx1_328"
+>
+  <path fill-opacity=".1"
+        d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0m0 3c5 0 9 4 9 9s-4 9-9 9-9-4-9-9 4-9 9-9"
+  >
+  </path>
+  <path fill="currentColor"
+        d="M12 0c6.6 0 12 5.4 12 12h-3c0-5-4-9-9-9z"
+  >
+    <animateTransform attributename="transform"
+                      dur="1.2s"
+                      from="0 12 12"
+                      repeatcount="indefinite"
+                      to="360 12 12"
+                      type="rotate"
+    >
+    </animateTransform>
+  </path>
+</svg>
+`;
