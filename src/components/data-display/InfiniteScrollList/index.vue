@@ -31,6 +31,9 @@ const { isLoading } = useInfiniteScroll(
   },
   { distance: 10 }
 )
+
+console.log('isLoading: ', isLoading.value)
+console.log('isFinish: ', isFinish.value)
 </script>
 
 <template>
