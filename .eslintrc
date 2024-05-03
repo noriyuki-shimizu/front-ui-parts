@@ -38,7 +38,7 @@
       "rules": {
         /* eslint-plugin-vitest */
         "vitest/consistent-test-it": ["error", { "fn": "it" }],
-        "vitest/max-expects": ["error", { "max": 5 }],
+        "vitest/max-expects": ["error", { "max": 1 }],
         "vitest/no-alias-methods": "error",
         "vitest/no-duplicate-hooks": "error",
         "vitest/no-standalone-expect": [
