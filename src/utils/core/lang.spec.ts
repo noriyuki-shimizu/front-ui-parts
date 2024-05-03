@@ -1,267 +1,160 @@
 import { describe, expect, it } from 'vitest'
-import {
-  isArray,
-  isBoolean,
-  isEmpty,
-  isMap,
-  isNil,
-  isNull,
-  isNumber,
-  isObject,
-  isSet,
-  isString,
-  isUndefined
-} from './lang'
+import { LangUtil } from './'
 
 describe('Lang utility functions', () => {
-  describe('isNull', () => {
-    it('value is null', () => {
-      expect(isNull(null)).toBe(true)
-    })
+  describe('LangUtil.isNull', () => {
+    const testData = [
+      { expected: null, actual: true },
+      { expected: undefined, actual: false },
+      { expected: 0, actual: false },
+      { expected: '', actual: false },
+      { expected: [], actual: false },
+      { expected: {}, actual: false },
+      { expected: false, actual: false }
+    ]
 
-    it('value is undefined', () => {
-      expect(isNull(undefined)).toBe(false)
-    })
-
-    it('value is 0', () => {
-      expect(isNull(0)).toBe(false)
-    })
-
-    it('value is ""', () => {
-      expect(isNull('')).toBe(false)
-    })
-
-    it('value is []', () => {
-      expect(isNull([])).toBe(false)
-    })
-
-    it('value is {}', () => {
-      expect(isNull({})).toBe(false)
-    })
-
-    it('value is false', () => {
-      expect(isNull(false)).toBe(false)
+    it.each(testData)('"$expected" の場合、"$actual"', ({ expected, actual }) => {
+      expect(LangUtil.isNull(expected)).toBe(actual)
     })
   })
 
   describe('isUndefined', () => {
-    it('value is null', () => {
-      expect(isUndefined(null)).toBe(false)
-    })
+    const testData = [
+      { expected: undefined, actual: true },
+      { expected: null, actual: false },
+      { expected: 0, actual: false },
+      { expected: '', actual: false },
+      { expected: [], actual: false },
+      { expected: {}, actual: false },
+      { expected: false, actual: false }
+    ]
 
-    it('value is undefined', () => {
-      expect(isUndefined(undefined)).toBe(true)
-    })
-
-    it('value is 0', () => {
-      expect(isUndefined(0)).toBe(false)
-    })
-
-    it('value is ""', () => {
-      expect(isUndefined('')).toBe(false)
-    })
-
-    it('value is []', () => {
-      expect(isUndefined([])).toBe(false)
-    })
-
-    it('value is {}', () => {
-      expect(isUndefined({})).toBe(false)
-    })
-
-    it('value is false', () => {
-      expect(isUndefined(false)).toBe(false)
+    it.each(testData)('"$expected" の場合、"$actual"', ({ expected, actual }) => {
+      expect(LangUtil.isUndefined(expected)).toBe(actual)
     })
   })
 
   describe('isNil', () => {
-    it('value is null', () => {
-      expect(isNil(null)).toBe(true)
-    })
+    const testData = [
+      { expected: null, actual: true },
+      { expected: undefined, actual: true },
+      { expected: 0, actual: false },
+      { expected: '', actual: false },
+      { expected: [], actual: false },
+      { expected: {}, actual: false },
+      { expected: false, actual: false }
+    ]
 
-    it('value is undefined', () => {
-      expect(isNil(undefined)).toBe(true)
-    })
-
-    it('value is 0', () => {
-      expect(isNil(0)).toBe(false)
-    })
-
-    it('value is ""', () => {
-      expect(isNil('')).toBe(false)
-    })
-
-    it('value is []', () => {
-      expect(isNil([])).toBe(false)
-    })
-
-    it('value is {}', () => {
-      expect(isNil({})).toBe(false)
-    })
-
-    it('value is false', () => {
-      expect(isNil(false)).toBe(false)
+    it.each(testData)('"$expected" の場合、"$actual"', ({ expected, actual }) => {
+      expect(LangUtil.isNil(expected)).toBe(actual)
     })
   })
 
   describe('isObject', () => {
-    it('value is {}', () => {
-      expect(isObject({})).toBe(true)
-    })
+    const testData = [
+      { expected: {}, actual: true },
+      { expected: () => {}, actual: true },
+      { expected: null, actual: false },
+      { expected: undefined, actual: false }
+    ]
 
-    it('value is function', () => {
-      expect(isObject(() => {})).toBe(true)
-    })
-
-    it('value is null', () => {
-      expect(isObject(null)).toBe(false)
-    })
-
-    it('value is undefined', () => {
-      expect(isObject(undefined)).toBe(false)
+    it.each(testData)('"$expected" の場合、"$actual"', ({ expected, actual }) => {
+      expect(LangUtil.isObject(expected)).toBe(actual)
     })
   })
 
   describe('isNumber', () => {
-    it('value is string', () => {
-      expect(isNumber(123)).toBe(true)
-    })
+    const testData = [
+      { expected: 123, actual: true },
+      { expected: '123', actual: false },
+      { expected: null, actual: false }
+    ]
 
-    it('value is number', () => {
-      expect(isNumber('123')).toBe(false)
-    })
-
-    it('value is null', () => {
-      expect(isNumber(null)).toBe(false)
+    it.each(testData)('"$expected" の場合、"$actual"', ({ expected, actual }) => {
+      expect(LangUtil.isNumber(expected)).toBe(actual)
     })
   })
 
   describe('isString', () => {
-    it('value is string', () => {
-      expect(isString('123')).toBe(true)
-    })
+    const testData = [
+      { expected: '123', actual: true },
+      { expected: 123, actual: false },
+      { expected: null, actual: false }
+    ]
 
-    it('value is number', () => {
-      expect(isString(123)).toBe(false)
-    })
-
-    it('value is null', () => {
-      expect(isNumber(null)).toBe(false)
+    it.each(testData)('"$expected" の場合、"$actual"', ({ expected, actual }) => {
+      expect(LangUtil.isString(expected)).toBe(actual)
     })
   })
 
   describe('isBoolean', () => {
-    it('value is true', () => {
-      expect(isBoolean(true)).toBe(true)
-    })
+    const testData = [
+      { expected: true, actual: true },
+      { expected: false, actual: true },
+      { expected: 'true', actual: false }
+    ]
 
-    it('value is false', () => {
-      expect(isBoolean(false)).toBe(true)
-    })
-
-    it('value is string', () => {
-      expect(isBoolean('true')).toBe(false)
+    it.each(testData)('"$expected" の場合、"$actual"', ({ expected, actual }) => {
+      expect(LangUtil.isBoolean(expected)).toBe(actual)
     })
   })
 
   describe('isArray', () => {
-    it('value is number[]', () => {
-      expect(isArray([1, 2, 3])).toBe(true)
-    })
+    const testData = [
+      { expected: [1, 2, 3], actual: true },
+      { expected: '123', actual: false },
+      { expected: null, actual: false }
+    ]
 
-    it('value is string', () => {
-      expect(isArray('123')).toBe(false)
-    })
-
-    it('value is null', () => {
-      expect(isArray(null)).toBe(false)
+    it.each(testData)('"$expected" の場合、"$actual"', ({ expected, actual }) => {
+      expect(LangUtil.isArray(expected)).toBe(actual)
     })
   })
 
   describe('isMap', () => {
-    it('value is Map', () => {
-      expect(isMap(new Map())).toBe(true)
-    })
+    const testData = [
+      { expected: new Map(), actual: true },
+      { expected: {}, actual: false },
+      { expected: null, actual: false }
+    ]
 
-    it('value is {}', () => {
-      expect(isMap({})).toBe(false)
-    })
-
-    it('value is null', () => {
-      expect(isMap(null)).toBe(false)
+    it.each(testData)('"$expected" の場合、"$actual"', ({ expected, actual }) => {
+      expect(LangUtil.isMap(expected)).toBe(actual)
     })
   })
 
   describe('isSet', () => {
-    it('value is Set', () => {
-      expect(isSet(new Set())).toBe(true)
-    })
+    const testData = [
+      { expected: new Set(), actual: true },
+      { expected: {}, actual: false },
+      { expected: null, actual: false }
+    ]
 
-    it('value is {}', () => {
-      expect(isSet({})).toBe(false)
-    })
-
-    it('value is null', () => {
-      expect(isSet(null)).toBe(false)
+    it.each(testData)('"$expected" の場合、"$actual"', ({ expected, actual }) => {
+      expect(LangUtil.isSet(expected)).toBe(actual)
     })
   })
 
   describe('isEmpty', () => {
-    it('should return true for null or undefined', () => {
-      expect(isEmpty(null)).toBe(true)
-      expect(isEmpty(undefined)).toBe(true)
-    })
+    const testData = [
+      { expected: null, actual: true },
+      { expected: undefined, actual: true },
+      { expected: '', actual: true },
+      { expected: [], actual: true },
+      { expected: {}, actual: true },
+      { expected: new Map(), actual: true },
+      { expected: new Set(), actual: true },
+      { expected: 0, actual: true },
+      { expected: 'not empty', actual: false },
+      { expected: [1, 2, 3], actual: false },
+      { expected: new Map([['key', 'value']]), actual: false },
+      { expected: new Set(['value']), actual: false },
+      { expected: { key: 'value' }, actual: false },
+      { expected: 1, actual: false }
+    ]
 
-    it('should return true for empty string', () => {
-      expect(isEmpty('')).toBe(true)
-    })
-
-    it('should return false for non-empty string', () => {
-      expect(isEmpty('not empty')).toBe(false)
-    })
-
-    it('should return true for empty array', () => {
-      expect(isEmpty([])).toBe(true)
-    })
-
-    it('should return false for non-empty array', () => {
-      expect(isEmpty([1, 2, 3])).toBe(false)
-    })
-
-    it('should return true for empty Map', () => {
-      expect(isEmpty(new Map())).toBe(true)
-    })
-
-    it('should return false for non-empty Map', () => {
-      const map = new Map()
-      map.set('key', 'value')
-      expect(isEmpty(map)).toBe(false)
-    })
-
-    it('should return true for empty Set', () => {
-      expect(isEmpty(new Set())).toBe(true)
-    })
-
-    it('should return false for non-empty Set', () => {
-      const set = new Set()
-      set.add('value')
-      expect(isEmpty(set)).toBe(false)
-    })
-
-    it('should return true for empty object', () => {
-      expect(isEmpty({})).toBe(true)
-    })
-
-    it('should return false for non-empty object', () => {
-      expect(isEmpty({ key: 'value' })).toBe(false)
-    })
-
-    it('should return true for number 0', () => {
-      expect(isEmpty(0)).toBe(true)
-    })
-
-    it('should return false for non-zero number', () => {
-      expect(isEmpty(1)).toBe(false)
+    it.each(testData)('"$expected" の場合、"$actual"', ({ expected, actual }) => {
+      expect(LangUtil.isEmpty(expected)).toBe(actual)
     })
   })
 })
