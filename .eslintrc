@@ -12,6 +12,7 @@
   "plugins": [
     "vue",
     "@typescript-eslint",
+    "vuejs-accessibility",
     "import",
     "unused-imports",
     "promise"
@@ -23,6 +24,7 @@
     "plugin:vue/vue3-recommended",
     "@vue/typescript/recommended",
     "plugin:security/recommended-legacy",
+    "plugin:vuejs-accessibility/recommended",
     "plugin:storybook/recommended"
   ],
   "overrides": [
