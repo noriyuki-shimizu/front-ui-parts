@@ -27,6 +27,8 @@ const template: Story = {
         v-model="inputText"
         :placeholder="args.placeholder"
         :size="args.size"
+        :input-aria-label="args.inputAriaLabel"
+        :button-aria-label="args.buttonAriaLabel"
       />
     `
   })
@@ -36,7 +38,9 @@ export const Default: Story = {
   ...template,
   args: {
     placeholder: 'タイトル検索',
-    size: 'medium'
+    size: 'medium',
+    inputAriaLabel: '検索フィールド',
+    buttonAriaLabel: '検索ボタン'
   }
 }
 
@@ -44,7 +48,9 @@ export const Small: Story = {
   ...template,
   args: {
     placeholder: 'タイトル検索',
-    size: 'small'
+    size: 'small',
+    inputAriaLabel: '検索フィールド',
+    buttonAriaLabel: '検索ボタン'
   }
 }
 
@@ -52,6 +58,8 @@ export const Large: Story = {
   ...template,
   args: {
     placeholder: 'タイトル検索',
-    size: 'large'
+    size: 'large',
+    inputAriaLabel: '検索フィールド',
+    buttonAriaLabel: '検索ボタン'
   }
 }
